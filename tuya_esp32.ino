@@ -3,6 +3,7 @@
 #include <WiFiManager.h>
 #include "TuyaESP32.h"
 #include "nvs_flash.h"
+#include "wifi_credentials.h
 
 // Constants
 #define STEPS 400
@@ -86,7 +87,7 @@ void connectToWiFi()
 
   setBlinkPeriod(1000);
   toggleLED(true);
-	if (!wifiManager.autoConnect("SMOOR-credentials", "chewy-jackal-recipient"))
+	if (!wifiManager.autoConnect(WIFI_SSID, WIFI_PASSWORD))
 	{
 		Serial.println("Failed to connect");
 		ESP.restart();
